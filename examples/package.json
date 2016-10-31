@@ -1,0 +1,9 @@
+{
+  "name": "magix-os",
+  "description": "magix os",
+  "version": "0.0.1",
+  "author": "Xinglie <xinglie.lkf@taobao.com>",
+  "dependencies": {
+    "serve-static": "^1.11.1"
+  }
+}

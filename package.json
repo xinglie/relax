@@ -1,0 +1,27 @@
+{
+  "name": "node-relax",
+  "version": "1.0.0",
+  "description": "view manager framewrok on server",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xinglie/relax.git"
+  },
+  "keywords": [
+    "relax",
+    "view",
+    "opoa",
+    "component",
+    "vom",
+    "router",
+    "spa",
+    "service",
+    "layout"
+  ],
+  "author": "xinglie <xinglie.lkf@taobao.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xinglie/relax/issues"
+  },
+  "homepage": "https://github.com/xinglie/relax#readme"
+}
