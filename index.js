@@ -20,10 +20,10 @@ var Configs = {
     },
     rootId: 'rx_root'
 };
-var EmptyArray = [];
 var ViewPlaceholder = String.fromCharCode(18, 30, 31); //临时占位符
 var RegVframe = /<vframe([^>]+)>[\s\S]*?<\/vframe>/g;
 var RegAttrView = /view\s*=\s*(['"])([^'"]+)\1/;
+var RegAttrId = /id\s*=\s*(['"])([^'"]+)\1/;
 var ViewRequire = function(view) {
     try {
         return require(Configs.views + view);
@@ -129,8 +129,11 @@ Mix(Vframe.prototype, {
         html = html || '';
         var counter = 0;
         html = html.replace(RegVframe, function(match, attrs) {
-            var id = 'rx_' + me.id + '_' + counter++;
-            var view = (attrs.match(RegAttrView) || EmptyArray)[2];
+            var id = attrs.match(RegAttrId);
+            if (id) id = id[2];
+            else id = 'rx_' + me.id + '_' + counter++;
+            var view = attrs.match(RegAttrView);
+            if (view) view = view[2];
             vframes.push({
                 id: id,
                 view: view
@@ -160,6 +163,9 @@ Mix(View.prototype, {
     setHTML: function(id, html) {
         var me = this;
         me.owner.notifyRender(html);
+    },
+    findVframe: function(id) {
+        return this.owner.vframes[id];
     },
     render: function() {
         this.setHTML(this.id, 'unfoud:' + this.path);

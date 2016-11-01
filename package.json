@@ -1,6 +1,6 @@
 {
   "name": "node-relax",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "view manager framewrok on server",
   "main": "index.js",
   "repository": {
